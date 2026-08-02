@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f1f0ec" />
+    <meta
+      name="description"
+      content="用于展示图片与视频作品的个人作品集网站框架。"
+    />
+    <title>胡作品集</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <canvas class="particle-field" data-particle-field aria-hidden="true"></canvas>
+    <canvas
+      class="lanyard-canvas"
+      data-lanyard-canvas
+      tabindex="0"
+      role="button"
+      aria-label="可拖动的白色挂绳作品卡，点击切换作品图片"
+    ></canvas>
+    <main class="portfolio-shell">
+      <header class="site-header">
+        <button
+          class="identity"
+          type="button"
+          data-profile-open
+          aria-haspopup="dialog"
+          aria-controls="profile-dialog"
+          aria-expanded="false"
+          aria-label="打开个人资料卡"
+        >
+          <span class="avatar-placeholder" aria-hidden="true">HYL</span>
+          <span class="identity-copy">
+            <strong>HU YU LONG</strong>
+            <small>IMAGE / MOTION</small>
+          </span>
+        </button>
+
+        <button class="about-button" type="button" data-about-button>
+          关于我
+        </button>
+      </header>
+
+      <section class="gallery" id="gallery" aria-labelledby="gallery-title">
+        <h1 class="sr-only" id="gallery-title">个人作品集媒体画廊</h1>
+
+        <div class="stage-column">
+          <div class="media-stage" data-media-stage tabindex="0">
+            <div class="stage-status" aria-live="polite">
+              <span data-project-name>项目 01</span>
+              <span data-slide-count>5 / 5</span>
+            </div>
+
+            <div class="media-viewport" data-media-viewport>
+              <div class="media-track" data-media-track></div>
+            </div>
+
+          </div>
+        </div>
+
+        <section class="project-rail" aria-label="项目画廊">
+          <div
+            class="project-scroller"
+            data-project-scroller
+            tabindex="0"
+            role="region"
+            aria-label="项目循环画廊，按住拖动浏览"
+          >
+            <div class="project-track" data-project-track></div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <dialog
+      class="profile-dialog"
+      id="profile-dialog"
+      data-profile-dialog
+      aria-labelledby="profile-name"
+    >
+      <section class="profile-panel" data-profile-panel>
+        <button
+          class="profile-close"
+          type="button"
+          data-profile-close
+          aria-label="关闭个人资料卡"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+
+        <div class="profile-card-wrap">
+          <article class="profile-card" data-profile-card>
+            <div class="profile-glow" aria-hidden="true"></div>
+            <div class="profile-surface">
+              <div class="profile-shine" aria-hidden="true"></div>
+              <div class="profile-portrait" aria-label="头像区域">
+                <img src="./hyl.png" alt="胡玉龙" />
+              </div>
+              <div class="profile-content">
+                <div>
+                  <h2 id="profile-name">胡玉龙</h2>
+                  <p>IMAGE / MOTION</p>
+                </div>
+                <div class="profile-meta">
+                  <span>email:yulong_h@163.com</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          <p class="profile-hint">移动鼠标查看卡片细节</p>
+        </div>
+      </section>
+    </dialog>
+
+    <dialog class="about-dialog" data-about-dialog>
+      <button class="dialog-close" type="button" data-dialog-close>关闭</button>
+      <div>
+        <p class="dialog-label">个人资料</p>
+        <h2>在这里补充你的介绍</h2>
+        <p>头像、简介与联系方式均已预留，可以在填充正式内容时替换。</p>
+      </div>
+    </dialog>
+
+    <script src="./app.js"></script>
+    <script src="./lanyard.js"></script>
+  </body>
+</html>
