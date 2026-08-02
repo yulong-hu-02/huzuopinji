@@ -1,7 +1,12 @@
+const OSS_BASE = "https://huzuopinji.oss-cn-hangzhou.aliyuncs.com/portfolio-gallery-site";
+
+const ossAsset = (path) =>
+  `${OSS_BASE}/${path.split("/").map(encodeURIComponent).join("/")}`;
+
 const makeMedia = (folder, prefix, count) =>
   Array.from({ length: count }, (_, i) => ({
     type: "image",
-    src: `./图片/${folder}/${prefix}${i + 1}.png`,
+    src: ossAsset(`图片/${folder}/${prefix}${i + 1}.png`),
     poster: "",
     alt: `${folder} ${i + 1}`,
   }));
@@ -15,21 +20,21 @@ const render3DMedia  = makeMedia("3D动画渲染", "d", 9);
 const voxMedia       = makeMedia("Vox", "v", 4);
 
 const videoMedia = [
-  { type: "video", src: "./图片/Agent.mp4",    poster: "", alt: "Agent" },
-  { type: "video", src: "./图片/xihu.mp4",     poster: "", alt: "西湖" },
-  { type: "video", src: "./图片/hongshui.mp4", poster: "", alt: "洪水" },
-  { type: "video", src: "./图片/huojian.mp4",  poster: "", alt: "火箭" },
+  { type: "video", src: ossAsset("图片/Agent.mp4"),    poster: "", alt: "Agent" },
+  { type: "video", src: ossAsset("图片/xihu.mp4"),     poster: "", alt: "西湖" },
+  { type: "video", src: ossAsset("图片/hongshui.mp4"), poster: "", alt: "洪水" },
+  { type: "video", src: ossAsset("图片/huojian.mp4"),  poster: "", alt: "火箭" },
 ];
 
 const projects = [
-  { id: "project-1", title: "拼图作品",   cover: "./图片/拼图/p_1.png",      media: puzzleMedia },
-  { id: "project-2", title: "摄影作品",   cover: "./图片/摄影/r1.png",       media: photoMedia },
-  { id: "project-3", title: "素描作品",   cover: "./图片/素描/s_1.png",      media: sketchMedia },
-  { id: "project-4", title: "油画作品",   cover: "./图片/油画/y_1.png",      media: oilMedia },
-  { id: "project-5", title: "赛博朋克",   cover: "./图片/赛博朋克/s1.png",    media: cyberMedia },
-  { id: "project-6", title: "3D动画渲染", cover: "./图片/3D动画渲染/d1.png",  media: render3DMedia },
-  { id: "project-7", title: "插画流程图", cover: "./图片/Vox/v1.png",         media: voxMedia },
-  { id: "project-8", title: "视频作品",   cover: "./图片/Agent.mp4",          media: videoMedia },
+  { id: "project-1", title: "拼图作品",   cover: ossAsset("图片/拼图/p_1.png"),      media: puzzleMedia },
+  { id: "project-2", title: "摄影作品",   cover: ossAsset("图片/摄影/r1.png"),       media: photoMedia },
+  { id: "project-3", title: "素描作品",   cover: ossAsset("图片/素描/s_1.png"),      media: sketchMedia },
+  { id: "project-4", title: "油画作品",   cover: ossAsset("图片/油画/y_1.png"),      media: oilMedia },
+  { id: "project-5", title: "赛博朋克",   cover: ossAsset("图片/赛博朋克/s1.png"),    media: cyberMedia },
+  { id: "project-6", title: "3D动画渲染", cover: ossAsset("图片/3D动画渲染/d1.png"),  media: render3DMedia },
+  { id: "project-7", title: "插画流程图", cover: ossAsset("图片/Vox/v1.png"),         media: voxMedia },
+  { id: "project-8", title: "视频作品",   cover: ossAsset("图片/Agent.mp4"),          media: videoMedia },
 ];
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");

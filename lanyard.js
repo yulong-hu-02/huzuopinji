@@ -5,7 +5,7 @@
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const cardImage = new Image();
-  cardImage.src = "./lanyard-card.png";
+  cardImage.src = "https://huzuopinji.oss-cn-hangzhou.aliyuncs.com/portfolio-gallery-site/lanyard-card.png";
 
   const pointCount = 6;
   const points = [];
